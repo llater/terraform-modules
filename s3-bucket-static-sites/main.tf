@@ -44,3 +44,7 @@ resource "aws_s3_bucket_website_configuration" "config" {
 output "bucket_id" {
   value = aws_s3_bucket.bucket.id
 }
+
+output "public_bucket_address" {
+  value = format("http://%s.s3-website-us-east-1.amazonaws.com", var.name)
+}
