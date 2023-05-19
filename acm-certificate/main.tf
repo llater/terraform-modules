@@ -1,6 +1,6 @@
 resource aws_acm_certificate default {
   domain_name = var.domain_name
-	subject_alternative_names = concat(var.subject_alternative_names, list("*.${var.domain_name}"))
+	subject_alternative_names = tolist([var.subject_alternative_names, "*.${var.domain_name}"])
 	validation_method = "DNS"
 }
 
